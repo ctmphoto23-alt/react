@@ -1,6 +1,6 @@
 import { books } from "./data";
 import { useParams, Link } from "react-router-dom";
-function BookDetails() {
+function BookDetails({ addToCart }) {
   const { id } = useParams();
 
   const book = books.find(
@@ -34,7 +34,7 @@ function BookDetails() {
 </p>
 <button
   className="btn__cart"
-  onClick={() => alert(`${book.title} added to cart!`)}
+  onClick={() => addToCart(book)}
 >
   Add to Cart
 </button>

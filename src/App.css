@@ -146,3 +146,27 @@
 .btn__cart:hover {
   background-color: #48218c;
 }
+#cart .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.cart__item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid #dcdfe6;
+}
+
+.cart__item--img {
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+}
+
+.cart__item h2 {
+  flex: 1;
+  font-size: 20px;
+}

@@ -1,9 +1,28 @@
 import { books } from "./data";
 import Book from "./Book";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+function BookSkeleton() {
+  return (
+    <div className="book" aria-hidden="true">
+      <div className="book__img--skeleton skeleton" />
+      <div className="book__title--skeleton skeleton" />
+      <div className="book__rating--skeleton skeleton" />
+      <div className="book__price--skeleton skeleton" />
+    </div>
+  );
+}
+
 function Books() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sort, setSort] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadingTimer = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(loadingTimer);
+  }, []);
+
   const handleReset = () => {
   setSearchTerm("");
   setSort("");
@@ -30,9 +49,11 @@ function Books() {
     <section id="books">
       <div className="container">
         <h1>Browse Books</h1>
-        <p className="books__count">
-  Showing {filteredBooks.length} books
-</p>
+        {!isLoading && (
+          <p className="books__count">
+            Showing {filteredBooks.length} books
+          </p>
+        )}
         <div className="books__search">
   <input
   type="text"
@@ -52,16 +73,19 @@ function Books() {
   Reset Filters
 </button>
 </div>
-        <div className="books">
-           {filteredBooks.length > 0 ? (
-  filteredBooks.map((book) => (
-    <Book key={book.id} book={book} />
-  ))
-) : (
-  <p>No books found. Try another search!</p>
-)}
-          
-        </div>
+<div className="books" aria-busy={isLoading}>
+  {isLoading ? (
+    <div className="books__loading" role="status" aria-label="Loading books">
+      {books.map((book) => (
+        <BookSkeleton key={book.id} />
+      ))}
+    </div>
+  ) : filteredBooks.length > 0 ? (
+    filteredBooks.map((book) => <Book key={book.id} book={book} />)
+  ) : (
+    <p>No books found. Try another search!</p>
+  )}
+</div>
       </div>
     </section>
   );

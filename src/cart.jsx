@@ -1,4 +1,4 @@
-function Cart({ cart, removeFromCart }) {
+function Cart({ cart, removeFromCart, updateQuantity }) {
   const subtotal = cart.reduce((total, book) => {
   const price = book.salePrice ?? book.originalPrice;
   return total + price * (book.quantity ?? 1);
@@ -15,7 +15,17 @@ function Cart({ cart, removeFromCart }) {
             <div className="cart__item" key={`${book.id}-${index}`}> <button onClick={() => removeFromCart(index)}>
   Remove
 </button>
-<p>Quantity: {book.quantity ?? 1}</p>
+<div className="cart__quantity">
+  <button onClick={() => updateQuantity(book.id, -1)}>
+    −
+  </button>
+
+  <span>{book.quantity ?? 1}</span>
+
+  <button onClick={() => updateQuantity(book.id, 1)}>
+    +
+  </button>
+</div>
               <img
                 className="cart__item--img"
                 src={book.url}

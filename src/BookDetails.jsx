@@ -1,6 +1,8 @@
 import { books } from "./data";
 import { useParams, Link } from "react-router-dom";
-function BookDetails({ addToCart }) {
+import Book from "./Book";
+function BookDetails({ 
+addToCart }) {
   const { id } = useParams();
 
   const book = books.find(
@@ -10,7 +12,9 @@ function BookDetails({ addToCart }) {
   if (!book) {
     return <h2>Book not found!</h2>;
   }
-
+const recommendedBooks = books
+  .filter((item) => item.id !== book.id && item.rating === 5)
+  .slice(0, 4);
   return (
     <section id="book-details">
       <div className="container">
@@ -40,9 +44,12 @@ function BookDetails({ addToCart }) {
 </button>
   </div>
 </div>
-        <p>
-          Price: ${book.salePrice ?? book.originalPrice}
-        </p>
+ <h2 className="recommended__title">Recommended Books</h2>
+<div className="books">
+  {recommendedBooks.map((item) => (
+    <Book key={item.id} book={item} />
+  ))}
+</div>       
       </div>
     </section>
   );

@@ -48,6 +48,9 @@ function Books() {
   <option value="low">Price: Low to High</option>
   <option value="high">Price: High to Low</option>
 </select>
+<button onClick={handleReset}>
+  Reset Filters
+</button>
 </div>
         <div className="books">
            {filteredBooks.length > 0 ? (

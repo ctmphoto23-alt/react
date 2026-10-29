@@ -1,4 +1,4 @@
-import "./app.css";
+import "./App.css";
 import Nav from "./nav";
 import Home from "./home";
 import Books from "./books";
@@ -10,6 +10,7 @@ import {
 import BookDetails from "./BookDetails";
 import Cart from "./cart";
 import { useState } from "react";
+import Footer from "./Footer"; 
 function App() {
   const [cart, setCart] = useState([]);
 
@@ -62,7 +63,7 @@ function updateQuantity(bookId, amount) {
 
   return (
     <BrowserRouter>
-      <Nav />
+      <Nav cart={cart} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/books" element={<Books />} />
@@ -78,6 +79,7 @@ function updateQuantity(bookId, amount) {
           }
         />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

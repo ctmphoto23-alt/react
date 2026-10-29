@@ -3,6 +3,8 @@ function Cart({ cart, removeFromCart, updateQuantity }) {
   const price = book.salePrice ?? book.originalPrice;
   return total + price * (book.quantity ?? 1);
 }, 0);
+const tax = subtotal * 0.1;
+const total = subtotal + tax;
   return (
     <section id="cart">
       <div className="container">
@@ -37,10 +39,27 @@ function Cart({ cart, removeFromCart, updateQuantity }) {
           ))
         )}
         {cart.length > 0 && (
-          <div className="cart__subtotal">
-            <h2>Subtotal: ${subtotal.toFixed(2)}</h2>
-          </div>
-        )}
+  <div className="cart__totals">
+    <div className="cart__row">
+      <span>Subtotal</span>
+      <span>${subtotal.toFixed(2)}</span>
+    </div>
+    <div className="cart__row">
+      <span>Tax</span>
+      <span>${tax.toFixed(2)}</span>
+    </div>
+    <div className="cart__row cart__row--total">
+      <span>Total</span>
+      <span>${total.toFixed(2)}</span>
+    </div>
+    <button
+      className="btn__checkout"
+      onClick={() => alert("Checkout coming soon!")}
+    >
+      Proceed to checkout
+    </button>
+  </div>
+)}
       </div>
     </section>
   );

@@ -7,6 +7,7 @@ export const books = [
     originalPrice: 49.95,
     salePrice: 14.95,
     rating: 4.5,
+    description: "Crack the Coding Interview is a book by Gayle Laakmann McDowell that provides coding interview preparation strategies and practice questions.",
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ export const books = [
     originalPrice: 39,
     salePrice: null,
     rating: 5,
+    description: "Atomic Habits is a book by James Clear that provides practical strategies for forming good habits and breaking bad ones.",
   },
   {
     id: 3,
@@ -23,6 +25,7 @@ export const books = [
     originalPrice: 29,
     salePrice: null,
     rating: 5,
+    description: "Can't Hurt Me is a book by David Goggins that chronicles his life story and the mental toughness principles he developed.",
   },
   {
     id: 4,
@@ -31,6 +34,7 @@ export const books = [
     originalPrice: 44,
     salePrice: 19,
     rating: 4.5,
+    description: "Deep Work is a book by Cal Newport that explores the benefits of focused, distraction-free work and how to achieve it.",
   },
   {
     id: 5,
@@ -39,6 +43,7 @@ export const books = [
     originalPrice: 32,
     salePrice: null,
     rating: 5,
+    description: "The 10X Rule is a book by Grant Cardone that emphasizes setting massive goals and taking massive action to achieve extraordinary success.",
   },
   {
     id: 6,
@@ -47,6 +52,7 @@ export const books = [
     originalPrice: 70,
     salePrice: 12.5,
     rating: 5,
+    description: "Sell Or Be Sold is a book by Grant Cardone that teaches the principles of selling and persuasion.",
   },
   {
     id: 7,
@@ -55,6 +61,7 @@ export const books = [
     originalPrice: 11,
     salePrice: 10,
     rating: 4,
+    description: "Rich Dad Poor Dad is a book by Robert Kiyosaki that contrasts the financial philosophies of his two 'dads' and teaches financial literacy.",
   },
   {
     id: 8,
@@ -63,6 +70,7 @@ export const books = [
     originalPrice: 38,
     salePrice: 17.95,
     rating: 4.5,
+    description: "Cashflow Quadrant is a book by Robert Kiyosaki that explains the different ways people earn income and achieve financial freedom.",
   },
   {
     id: 9,
@@ -71,6 +79,7 @@ export const books = [
     originalPrice: 35,
     salePrice: 19.95,
     rating: 4.5,
+    description: "48 Laws of Power Summary is a concise guide to the key principles of power and strategy from Robert Greene's book.",
   },
   {
     id: 10,
@@ -79,6 +88,7 @@ export const books = [
     originalPrice: 40,
     salePrice: null,
     rating: 5,
+    description: "The 5 Second Rule is a self-help book by Mel Robbins that provides a simple technique to overcome procrastination and take action.",
   },
   {
     id: 11,
@@ -87,6 +97,7 @@ export const books = [
     originalPrice: 30,
     salePrice: 20,
     rating: 5,
+    description: "How to Win Friends & Influence People is a self-help book by Dale Carnegie that teaches interpersonal skills and effective communication.",
   },
   {
     id: 12,
@@ -95,5 +106,6 @@ export const books = [
     originalPrice: 30,
     salePrice: 12.95,
     rating: 4.5,
+    description: "Mastery is a book by Robert Greene that explores the path to achieving mastery in any field.",
   },
 ];

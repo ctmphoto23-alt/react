@@ -4,7 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({ cart = [] }) => {
+  const cartCount = cart.reduce(
+    (total, book) => total + (book.quantity ?? 1),
+    0
+  );
+
   return (
     <nav>
       <div className="nav__container">
@@ -31,6 +36,11 @@ const Nav = () => {
             <Link to="/cart" className="nav__link" aria-label="Cart">
               <FontAwesomeIcon icon={faShoppingCart} />
             </Link>
+            {cartCount > 0 && (
+              <span className="cart__length" aria-label={`${cartCount} items in cart`}>
+                {cartCount}
+              </span>
+            )}
           </li>
         </ul>
       </div>
